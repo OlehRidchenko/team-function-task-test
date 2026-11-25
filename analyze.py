@@ -14,7 +14,7 @@ def analyze_numbers(numbers):
     maximum = max(numbers)
     minimum = min(numbers)
 
-    even_count = sum(1 for n in numbers if n % 2 == 0)
+    even_count = sum(1 for n in numbers if n % 2 != 0)
     odd_count = len(numbers) - even_count
 
     return {
