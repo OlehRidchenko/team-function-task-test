@@ -70,5 +70,23 @@ class TestAnalyzeNumbers(unittest.TestCase):
         self.assertEqual(result["odd_count"], 2)
 
 
+    def test_large_numbers(self):
+        result = analyze_numbers([1000, 2000, 3000])
+        self.assertEqual(result["sum"], 6000)
+        self.assertEqual(result["average"], 2000)
+        self.assertEqual(result["maximum"], 3000)
+        self.assertEqual(result["minimum"], 1000)
+        self.assertEqual(result["even_count"], 3)
+        self.assertEqual(result["odd_count"], 0)
+
+    def test_mixed_positive_and_negative_numbers(self):
+        result = analyze_numbers([-5, -2, 3, 4])
+        self.assertEqual(result["sum"], 0)
+        self.assertEqual(result["average"], 0)
+        self.assertEqual(result["maximum"], 4)
+        self.assertEqual(result["minimum"], -5)
+        self.assertEqual(result["even_count"], 2)
+        self.assertEqual(result["odd_count"], 2)
+
 if __name__ == "__main__":
     unittest.main()
